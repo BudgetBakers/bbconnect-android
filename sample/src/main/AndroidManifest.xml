@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application android:label="BBConnect Sample" android:theme="@style/Theme.AppCompat.Light">
+        <activity android:name=".SampleActivity" android:exported="true" android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Quickstart step 0a: https app link (assetlinks.json on the
+                 domain + autoVerify). The returnUrl registered in the partner
+                 portal must match. -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="app.example-partner.test" android:path="/bb-callback" />
+            </intent-filter>
+
+            <!-- Quickstart step 0b: custom-scheme fallback. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="acmewallet" android:host="bb-callback" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
